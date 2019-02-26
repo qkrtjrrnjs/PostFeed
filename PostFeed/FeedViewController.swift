@@ -20,6 +20,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         FeedTableView.dataSource = self
         FeedTableView.delegate = self
         
+        //JSON parsing
         let url = URL(string: "https://api.myjson.com/bins/f8xry")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -45,6 +46,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
+        //get necessary url/texts
         let post = posts[indexPath.row]
         let user = post["user"] as! [String:Any]
         let name = user["name"] as! String
@@ -55,11 +57,29 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let created = post["created"] as! String
         
         cell.nameLabel.text = name
-        cell.likeLabel.text = "\(likeCount)"
+        cell.likeLabel.text = "\(likeCount) likes"
         cell.descriptionLabel.text = description
         
+        getAndSetImage(urlString: avatarURL, imageView: cell.avatarImage)
+        getAndSetImage(urlString: postURL, imageView: cell.postImage)
+        
+        cell.postImage.layer.masksToBounds = true
+        cell.avatarImage.layer.masksToBounds = true
+        
+        cell.avatarImage.layer.cornerRadius = 25
         
         return cell
+    }
+    
+    func getAndSetImage(urlString: String, imageView: UIImageView){
+        
+        let url = URL(string: urlString)
+        let data = try? Data(contentsOf: url!)
+        
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            imageView.image = image
+        }
     }
 
 
