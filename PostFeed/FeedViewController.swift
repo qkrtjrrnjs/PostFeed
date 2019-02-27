@@ -82,13 +82,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.avatarImage.layer.masksToBounds = true
         cell.avatarImage.layer.cornerRadius = 25
         
-        
-        
         return cell
     }
     
     func getAndSetImage(urlString: String, imageView: UIImageView){
-        
         let url = URL(string: urlString)
         let data = try? Data(contentsOf: url!)
         
