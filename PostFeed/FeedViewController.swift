@@ -38,6 +38,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         task.resume()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       // FeedTableView.estimatedRowHeight = 500
+        //FeedTableView.rowHeight = UITableView.automaticDimension
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -47,26 +52,37 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
         //get necessary url/texts
-        let post = posts[indexPath.row]
-        let user = post["user"] as! [String:Any]
-        let name = user["name"] as! String
-        let avatarURL = user["avatarURL"] as! String
-        let postURL = post["postURL"] as! String
-        let likeCount = post["likeCount"] as! Int
-        let description = post["description"] as! String
-        let created = post["created"] as! String
+        let post            = posts[indexPath.row]
+        let user            = post["user"] as! [String:Any]
+        let name            = user["name"] as! String
+        let avatarURL       = user["avatarURL"] as! String
+        let postURL         = post["postURL"] as! String
+        let likeCount       = post["likeCount"] as! Int
+        let description     = post["description"] as! String
+        let createdDate     = post["created"] as! String
+        
+        //date formatting
+        let dateString = createdDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let tempDateString = dateFormatter.date(from: dateString)!
+        dateFormatter.dateFormat = "MMMM dd, yyyy 'at' h:mm a"
+        let newDateString = dateFormatter.string(from: tempDateString)
         
         cell.nameLabel.text = name
         cell.likeLabel.text = "\(likeCount) likes"
         cell.descriptionLabel.text = description
+        cell.dateLabel.text = newDateString
         
         getAndSetImage(urlString: avatarURL, imageView: cell.avatarImage)
         getAndSetImage(urlString: postURL, imageView: cell.postImage)
         
         cell.postImage.layer.masksToBounds = true
         cell.avatarImage.layer.masksToBounds = true
-        
         cell.avatarImage.layer.cornerRadius = 25
+        
+        
         
         return cell
     }
