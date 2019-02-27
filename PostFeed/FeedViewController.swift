@@ -81,7 +81,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.postImage.layer.masksToBounds = true
         cell.avatarImage.layer.masksToBounds = true
         cell.avatarImage.layer.cornerRadius = 25
-        
+                
         return cell
     }
     

@@ -18,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goku" translatesAutoresizingMaskIntoConstraints="NO" id="ZTx-tU-Lhn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goku" translatesAutoresizingMaskIntoConstraints="NO" id="ZTx-tU-Lhn">
                                 <rect key="frame" x="45" y="172" width="284" height="323"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Mwa-tD-KCF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZTx-tU-Lhn" secondAttribute="bottom" constant="172" id="lqe-f6-vhu"/>
+                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="pM3-ku-EpH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTx-tU-Lhn" secondAttribute="trailing" constant="46" id="tE9-S2-Qyg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
