@@ -17,15 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //generate random number between 0 & 1 including 1
+        let randNum = Int.random(in: 0 ... 1)
+
+        //50:50 chance of presenting either A || B viewcontroller
+        if randNum == 0{
+            presentViewController(viewIdentifier: "AViewController")
+        }
+        else{
+            presentViewController(viewIdentifier: "BViewController")
+        }
+        
+        return true
+    }
+    
+    //view controller displayer
+    func presentViewController(viewIdentifier: String){
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let FeedViewController: FeedViewController = mainStoryboard.instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+        let FeedViewController: FeedViewController = mainStoryboard.instantiateViewController(withIdentifier: viewIdentifier) as! FeedViewController
         
         self.window?.rootViewController = FeedViewController
         
         self.window?.makeKeyAndVisible()
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
