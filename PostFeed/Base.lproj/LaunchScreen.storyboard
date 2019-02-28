@@ -19,15 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goku" translatesAutoresizingMaskIntoConstraints="NO" id="ZTx-tU-Lhn">
-                                <rect key="frame" x="45" y="172" width="284" height="323"/>
+                                <rect key="frame" x="44" y="159" width="287" height="349"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZTx-tU-Lhn" secondAttribute="height" multiplier="287:349" id="lbg-vc-mXC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Mwa-tD-KCF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZTx-tU-Lhn" secondAttribute="bottom" constant="172" id="lqe-f6-vhu"/>
-                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="pM3-ku-EpH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTx-tU-Lhn" secondAttribute="trailing" constant="46" id="tE9-S2-Qyg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTx-tU-Lhn" secondAttribute="trailing" constant="44" id="2PO-Do-Ccn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZTx-tU-Lhn" secondAttribute="bottom" constant="159" id="DAr-G3-jah"/>
+                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="hU3-kP-BIw"/>
+                            <constraint firstItem="ZTx-tU-Lhn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="uS8-Rg-YGw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

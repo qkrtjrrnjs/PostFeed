@@ -38,6 +38,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         task.resume()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //auto resizing cell
+        FeedTableView.rowHeight = UITableView.automaticDimension
+        FeedTableView.estimatedRowHeight = FeedTableView.rowHeight
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
