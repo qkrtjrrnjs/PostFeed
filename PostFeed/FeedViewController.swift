@@ -35,6 +35,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.FeedTableView.reloadData()
             }
         }
+        
+        self.view.backgroundColor = UIColor.lightGray
+        
         task.resume()
     }
     
