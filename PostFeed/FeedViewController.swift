@@ -38,6 +38,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.view.backgroundColor = UIColor.lightGray
         
+        
         task.resume()
     }
     
@@ -81,7 +82,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //Making the avatar imageView a circle
         cell.avatarImage.layer.masksToBounds    = true
-        cell.avatarImage.layer.cornerRadius     = 25
+        cell.avatarImage.layer.cornerRadius     = cell.avatarImage.frame.size.width / 2
         
         //Displaying image
         getAndSetImage(urlString: avatarURL, imageView: cell.avatarImage)
